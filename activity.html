@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Complex Activity JS</title>
+  </head>
+  <body>
+    <script>
+      //Write a JavaScript function that takes a string as input and determines whether it is a palindrome (reads the same forwards and backwards). The function should return true if the string is a palindrome and false otherwise. You should consider edge cases, ignore non-alphanumeric characters, and handle case sensitivity.
+
+      //   function isPalindrome(str) {
+      //     // Step 1. Lowercase the string and use the RegExp to remove unwanted characters from it
+      //     let re = /[\W_]/g; // or var re = /[^A-Za-z0-9]/g;
+
+      //     let lowRegStr = str.toLowerCase().replace(re, "");
+      //     // str.toLowerCase() = "A man, a plan, a canal. Panama".toLowerCase() = "a man, a plan, a canal. panama"
+      //     // str.replace(/[\W_]/g, '') = "a man, a plan, a canal. panama".replace(/[\W_]/g, '') = "amanaplanacanalpanama"
+      //     // var lowRegStr = "amanaplanacanalpanama";
+
+      //     // Step 2. Use the same chaining methods with built-in functions from the previous article 'Three Ways to Reverse a String in JavaScript'
+      //     let reverseStr = lowRegStr.split("").reverse().join("");
+      //     // lowRegStr.split('') = "amanaplanacanalpanama".split('') = ["a", "m", "a", "n", "a", "p", "l", "a", "n", "a", "c", "a", "n", "a", "l", "p", "a", "n", "a", "m", "a"]
+      //     // ["a", "m", "a", "n", "a", "p", "l", "a", "n", "a", "c", "a", "n", "a", "l", "p", "a", "n", "a", "m", "a"].reverse() = ["a", "m", "a", "n", "a", "p", "l", "a", "n", "a", "c", "a", "n", "a", "l", "p", "a", "n", "a", "m", "a"]
+      //     // ["a", "m", "a", "n", "a", "p", "l", "a", "n", "a", "c", "a", "n", "a", "l", "p", "a", "n", "a", "m", "a"].join('') = "amanaplanacanalpanama"
+      //     // So, "amanaplanacanalpanama".split('').reverse().join('') = "amanaplanacanalpanama";
+      //     // And, var reverseStr = "amanaplanacanalpanama";
+
+      //     // Step 3. Check if reverseStr is strictly equals to lowRegStr and return a Boolean
+      //     return reverseStr === lowRegStr; // "amanaplanacanalpanama" === "amanaplanacanalpanama"? => true
+      //   }
+
+      //   console.log(isPalindrome("level")); // Output: true
+      //   console.log(isPalindrome("Hello")); // Output: false
+      //   console.log(isPalindrome("A man, a plan, a canal. Panama")); // Output: true
+
+      //1. Palindrome Checker
+
+      // Write a JavaScript function that takes a string as input and determines whether it is a palindrome (reads the same forwards and backwards). The function should return true if the string is a palindrome and false otherwise. You should consider edge cases, ignore non-alphanumeric characters, and handle case sensitivity.
+
+      function isPalindrome(str) {
+        let re = /[\W_]/g;
+        let lowerCase = str.toLowerCase().replace(re, "");
+
+        let reverseString = lowerCase.split("").reverse().join("");
+        return reverseString === lowerCase;
+      }
+
+      console.log(isPalindrome("level"));
+      console.log(isPalindrome("Hello"));
+      console.log(isPalindrome("A man, a plan, a canal. Panama"));
+
+      //2. FizzBuzz
+
+      // Write a JavaScript function that takes a number as input and prints the numbers from 1 to the given number. However, for multiples of three, the function should print "Fizz" instead of the number, and for multiples of five, it should print "Buzz". For numbers that are multiples of both three and five, it should print "FizzBuzz".
+
+      const fizzBuzz = (num) => {
+        let fizzBuzzNumbers = [];
+
+        const setArray = (num) => {
+          for (let x = 1; x < num + 1; x++) {
+            fizzBuzzNumbers.push(x);
+          }
+        };
+
+        setArray(num);
+
+        for (let x = 0; x < fizzBuzzNumbers.length; x++) {
+          if (fizzBuzzNumbers[x] % 3 === 0 && fizzBuzzNumbers[x] % 5 === 0) {
+            console.log("FizzBuzz");
+          } else if (
+            fizzBuzzNumbers[x] % 3 === 0 &&
+            fizzBuzzNumbers[x] % 5 !== 0
+          ) {
+            console.log("Fizz");
+          } else if (
+            fizzBuzzNumbers[x] % 3 !== 0 &&
+            fizzBuzzNumbers[x] % 5 === 0
+          ) {
+            console.log("Buzz");
+          } else {
+            console.log(fizzBuzzNumbers[x]);
+          }
+        }
+      };
+
+      fizzBuzz(15);
+
+      // 3. Fibonacci Sequence
+
+      // Write a JavaScript function that generates the Fibonacci sequence up to a given number of terms. The function should return an array containing the sequence.
+
+      //    function fibonacciSequence(numTerms)
+
+      function fibonacciSequence(numTerms) {
+        let fibArray = [0, 1];
+        for (x = 0, y = 1, z = 0; z < numTerms; x = y, y = a, z++) {
+          a = x + y;
+          fibArray.push(a);
+        }
+        return fibArray;
+      }
+
+      console.log(fibonacciSequence(10));
+    </script>
+    //
+  </body>
+  //
+</html>
